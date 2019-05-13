@@ -15,14 +15,16 @@ function blingAction(){
     let checkBox=document.getElementById("checkBox");
    if(checkBox.checked) {
        textArea.style.fontWeight="bold";
-       textArea.style.color="green";
+       textArea.style.color="green"; 
        textArea.style.textDecoration="underline";
-       document.body.style.backgroundImage="url('Images/hunderd-dollar-bill.jpg')";
-    alert("Bling is checked !");
+       document.body.style.backgroundImage="url('Images/hundred-dollar-bill.jpg')";
+   // alert("Bling is checked !");
 } else{
-    textArea.style.fontWeight="normal";
+    textArea.style.fontWeight = "normal";
     document.body.style.backgroundImage="none";
-    alert("Bling is unchecked!");
+    textArea.style.textDecoration="none";
+    textArea.style.color="black";
+  //  alert("Bling is unchecked!");
 }
 }
 
@@ -36,7 +38,7 @@ function decorationBtnAction(){
 function delayBtnAction(){
     let timer= null;
     if(timer===null){
-        timer = setInterval(decorationBtnAction,5000);
+        timer = setInterval(decorationBtnAction,500);
     }
     else{ clearInterval(timer);
         timer=null;}
