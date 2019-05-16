@@ -17,16 +17,15 @@
            $("#status").text("You lost");
            alert("you lost");
         });
-         $("#maze").mouseout(
-               function() {
+       
+         $("#maze").mouseleave( function() {
                     count++;
            $(".boundary.example").text("Boundary hit:"+count);
            $("#status").text("You lost");
            alert("you lost");
                } 
-                
-                
-                );
+    );
+       
        $("#end").mouseover(function(){
            if(count===0){
                
