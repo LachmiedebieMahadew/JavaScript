@@ -17,9 +17,19 @@
            $("#status").text("You lost");
            alert("you lost");
         });
-         
+         $("#maze").mouseout(
+               function() {
+                    count++;
+           $(".boundary.example").text("Boundary hit:"+count);
+           $("#status").text("You lost");
+           alert("you lost");
+               } 
+                
+                
+                );
        $("#end").mouseover(function(){
            if(count===0){
+               
                $(".boundary.example").text("Boundary hit:"+count);
                $("#status").text("congrats, You won");
                alert("you win");
