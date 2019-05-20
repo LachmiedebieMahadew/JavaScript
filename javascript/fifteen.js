@@ -13,7 +13,7 @@ window.onload = function()
 };
 
 //Place the elmemts into right position
-var numberOn_Piece = [];
+var numberOnCurrentPiece = [];
 function placeElements()
 {
 	// var puzzlearea = $("puzzlearea");
@@ -21,7 +21,7 @@ function placeElements()
 	for (var i = 0; i < puzzlepieces.length; i++) {
 		puzzlepieces[i].className = "puzzlepiece";
 		puzzlepieces[i].id = i;
-		numberOn_Piece[i] = i + 1;
+		numberOnCurrentPiece[i] = i + 1;
 		setPositionOfSinglePiece(puzzlepieces[i], i);
 		setBackgroundForSinglePiece(puzzlepieces[i], i);
 		//Event Handling
@@ -29,7 +29,7 @@ function placeElements()
 		puzzlepieces[i].onmouseover = highlightPiece;
 		puzzlepieces[i].onmouseout = dehighlightPiece;
 	}
-	numberOn_Piece[puzzlepieces.length] = 0;
+	numberOnCurrentPiece[puzzlepieces.length] = 0;
 }
 
 //Place a single piece into right position
@@ -64,8 +64,8 @@ function movePieceEvent(event)
 	if (dest !== -1) {
 		movePieceFromTo(this, index, dest);
 		//Reset the numberOn_Piece[i]
-		numberOn_Piece[dest] = numberOn_Piece[index];
-		numberOn_Piece[index] = 0;
+		numberOnCurrentPiece[dest] = numberOnCurrentPiece[index];
+		numberOnCurrentPiece[index] = 0;
 		this.id = dest;
 	}
 
@@ -74,10 +74,10 @@ function movePieceEvent(event)
 	var puzzlepieces = $$("#puzzlearea div");
 	var correctCount = 0;
 	for (var i = 0; i < puzzlepieces.length; i++) {
-		if (numberOn_Piece[i] === i + 1)
+		if (numberOnCurrentPiece[i] === i + 1)
 			correctCount++;
 	}
-	if (numberOn_Piece[puzzlepieces.length] === 0)
+	if (numberOnCurrentPiece[puzzlepieces.length] === 0)
 		correctCount++;
 	if (correctCount === 16) {
 		// alert("OH YEAH YOU ARE SUCCESSFUL!");
@@ -122,19 +122,19 @@ function canMoveTo(index)
 
 	if (left >= 0 && left < 16)
 		//if 0 left side and index is not leftmost
-		if (numberOn_Piece[left] === 0 && index % size !== 0) {
+		if (numberOnCurrentPiece[left] === 0 && index % size !== 0) {
 			return left;
 		}
 	if (right >= 0 && right < 16)
-		if (numberOn_Piece[right] === 0 && index % size !== 3) {
+		if (numberOnCurrentPiece[right] === 0 && index % size !== 3) {
 			return right;
 		}
 	if (up >= 0 && up < 16)
-		if (numberOn_Piece[up] === 0 && Math.floor(index / size) !== 0) {
+		if (numberOnCurrentPiece[up] === 0 && Math.floor(index / size) !== 0) {
 			return up;
 		}
 	if (down >= 0 && down < 16)
-		if (numberOn_Piece[down] === 0 && Math.floor(index / size) !== 3) {
+		if (numberOnCurrentPiece[down] === 0 && Math.floor(index / size) !== 3) {
 			return down;
 		}
 	return -1;
@@ -181,8 +181,8 @@ function shuffle(event)
 		var index = parseInt(piece.id);
 		var dest = canMoveTo(index);
 		movePieceFromTo(piece, index, dest);
-		numberOn_Piece[dest] = numberOn_Piece[index];
-		numberOn_Piece[index] = 0;
+		numberOnCurrentPiece[dest] = numberOnCurrentPiece[index];
+		numberOnCurrentPiece[index] = 0;
 		piece.id = dest;
 		list = [];
 	}

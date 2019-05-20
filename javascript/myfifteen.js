@@ -8,7 +8,7 @@
 $(document).ready(function(){
     $("shufflebutton").onclick=shuffle;
     positioningPieces();
-
+    });
     var numberOnCurrentPiece=[];
     var size=4;
     function shuffle(){
@@ -174,4 +174,4 @@ function dehighlightPiece(event)
 }
     
     
-      });  
+     
