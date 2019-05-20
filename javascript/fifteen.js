@@ -6,11 +6,11 @@
 
 /* global $$ */
 
-window.onload = function()
+window.onload = (function()
 {
 	$("shufflebutton").onclick = shuffle;
 	placeElements();
-};
+});
 
 //Place the elmemts into right position
 var numberOnCurrentPiece = [];
