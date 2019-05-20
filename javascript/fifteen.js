@@ -5,16 +5,11 @@
  */
 
 /* global $$ */
-
+var numberOnCurrentPiece = [];
 window.onload = (function()
 {  
 	$("shufflebutton").onclick = shuffle;
-	placeElements();
-});
-
-//Place the elmemts into right position
-var numberOnCurrentPiece = [];
-function placeElements()
+	(function placeElements()
 {   alert("place Elements");
 	// var puzzlearea = $("puzzlearea");
 	var puzzlepieces = $$("#puzzlearea div");
@@ -30,7 +25,12 @@ function placeElements()
 		puzzlepieces[i].onmouseout = dehighlightPiece;
 	}
 	numberOnCurrentPiece[puzzlepieces.length] = 0;
-}
+})();
+});
+
+//Place the elmemts into right position
+
+
 
 //Place a single piece into right position
 var size = 4;
