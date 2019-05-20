@@ -7,7 +7,7 @@
 /* global $$ */
 
 window.onload = (function()
-{
+{   alert("window loaded");
 	$("shufflebutton").onclick = shuffle;
 	placeElements();
 });
