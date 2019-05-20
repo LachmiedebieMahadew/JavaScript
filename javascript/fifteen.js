@@ -15,7 +15,7 @@ window.onload = (function()
 //Place the elmemts into right position
 var numberOnCurrentPiece = [];
 function placeElements()
-{   alert("place Elements");
+{   
 	// var puzzlearea = $("puzzlearea");
 	var puzzlepieces = $$("#puzzlearea div");
 	for (var i = 0; i < puzzlepieces.length; i++) {
